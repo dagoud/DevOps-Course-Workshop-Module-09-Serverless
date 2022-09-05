@@ -14,6 +14,13 @@
       "partitionKey": "message",
       "rowKey": "{rowKey}",
       "direction": "in"
+    },
+    {
+      "name": "message",
+      "type": "table",
+      "tableName": "AcmeSubitles",
+      "partitionKey": "message",
+      "direction": "out"
     }
   ]
 }
