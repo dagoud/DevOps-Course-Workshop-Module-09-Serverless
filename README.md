@@ -19,7 +19,7 @@ Also, make sure you have installed the following:
   * :warning: At time of writing, Azure function tools for Python works with Python 3.6-3.9 on x86(/64) only, not on ARM for M1 Macs
     * [GitHub issue for M1 Macs](https://github.com/Azure/azure-functions-python-worker/issues/915)
     * [GitHub issue for Python3.10](https://github.com/Azure/azure-functions-python-worker/issues/899)
-    * The workshop can also be done using [GitPod](https://gitpod.io/#https://github.com/CorndelWithSoftwire/DevOps-Course-Workshop-Module-09-Serverless)
+    * The workshop can also be done using [GitPod](https://gitpod.io/#https://github.com/dagoud/DevOps-Course-Workshop-Module-09-Serverless)
 * [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 * [Python](https://www.python.org/downloads/)
   * Version 3.6 or up; check this by running `python --version`
