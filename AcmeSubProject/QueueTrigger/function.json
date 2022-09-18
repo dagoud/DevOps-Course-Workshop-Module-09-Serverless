@@ -2,10 +2,17 @@
   "scriptFile": "__init__.py",
   "bindings": [
     {
+      "name": "messageSub",
+      "type": "table",
+      "tableName": "AcmeSubtitles",
+      "partitionKey": "message",
+      "direction": "out"
+    },
+    {
       "name": "msg",
       "type": "queueTrigger",
       "direction": "in",
-      "queueName": "acmesub-translations-queue",
+      "queueName": "acmesub-translations-queue"
     },
     {
       "name": "messageJSON",
@@ -13,14 +20,8 @@
       "tableName": "AcmeTranslations",
       "partitionKey": "message",
       "rowKey": "{rowKey}",
+      "languageCode": "{languageCode}",
       "direction": "in"
-    },
-    {
-      "name": "message",
-      "type": "table",
-      "tableName": "AcmeSubitles",
-      "partitionKey": "message",
-      "direction": "out"
     }
   ]
 }

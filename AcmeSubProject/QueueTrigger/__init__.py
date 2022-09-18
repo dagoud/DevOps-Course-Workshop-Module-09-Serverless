@@ -3,12 +3,13 @@ import json
 import azure.functions as func
 
 
-def main(msg: func.QueueMessage, messageJSON, message: func.Out[str] ) -> None:
+def main(msg: func.QueueMessage, messageJSON, messageSub: func.Out[str] ) -> None:
     logging.info('Python queue trigger function processed a queue item: %s',
                  msg.get_body().decode('utf-8'))
     
-    message = json.loads(messageJSON)
-    print(f"Table row subitle: {messageJSON}")
+    msgBody = json.loads(msg.get_body().decode('utf-8'))
+    messageJSONLoad = json.loads(messageJSON)
 
-    # message.set(message.subtitle.upper())
-    # return func.HttpResponse(f"Table row: {messageJSON}")
+    messageSub.set(json.dumps({
+            "rowKey": msgBody['rowKey'], "subtitle": messageJSONLoad['subtitle'].upper(), "languageCode": msgBody['languageCode']
+        }))

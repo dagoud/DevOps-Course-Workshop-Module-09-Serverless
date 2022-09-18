@@ -6,7 +6,7 @@ import typing
 import azure.functions as func
 
 
-def main(request: func.HttpRequest, msg: func.Out[typing.List[str]], message: func.Out[str]) -> func.HttpResponse:
+def main(request: func.HttpRequest, msg: func.Out[typing.List[str]], messageJSON: func.Out[str]) -> func.HttpResponse:
  
     req_body = request.get_json()
     subtitle = req_body.get("subtitle")
@@ -24,7 +24,7 @@ def main(request: func.HttpRequest, msg: func.Out[typing.List[str]], message: fu
             "rowKey": rowKey, "languageCode": lang
         }))
 
-    message.set(table)
+    messageJSON.set(table)
     msg.set(queueList)
 
     return func.HttpResponse(f"New Subtitles added to table: {table}. New Language Message Queue entries created: {queueList}", status_code=200)
